@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Technation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b26b64fb59.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="img/logo.jpg" alt="AC Technation Logo" />
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#homepage" class="btn">Home</a></li>
+                <li><a href="#services" class="btn">Services</a></li>
+                <li><a href="#about" class="btn">About Us</a></li>
+                <li><a href="#feedback" class="btn">Feedback</a></li>
+                <li><a href="#developer" class="btn">Developer</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="homepage" id="homepage">
+        <!-- Slogan on the Left -->
+        <div class="slogan">
+            <h1>Quality You Can Trust</h1>
+            <p>AC Technation - Your trusted partner for reliable and top-quality AC services.</p>
+        </div>
+        
+        <!-- Image Slider on the Right -->
+        <div class="slider">
+            <div class="slide">
+                <img src="img/workpace1.jpeg" alt="Working Place 1">
+            </div>
+            <div class="slide">
+                <img src="img/workpalce2.jpeg" alt="Working Place 2">
+            </div>
+            <div class="slide">
+                <img src="img/workplace3.jpeg" alt="Working Place 3">
+            </div>
+            <div class="slide">
+                <img src="img/image1.jpeg" alt="Working Place 3">
+            </div>
+            <div class="slide">
+                <img src="img/image2.jpeg" alt="Working Place 3">
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Services Section -->
+    <section class="image-gallery" id="services">
+        <h2>Our Services in Action</h2>
+        <div class="gallery">
+            <div class="service">
+                <img src="img/image1.jpeg" alt="Service Image 1">
+                <div class="service-info">
+                    <h3>AC Installation</h3>
+                    <p>Price: $100</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="img/image2.jpeg" alt="Service Image 2">
+                <div class="service-info">
+                    <h3>AC Repair</h3>
+                    <p>Price: $80</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="img/image3.jpeg" alt="Service Image 3">
+                <div class="service-info">
+                    <h3>AC Maintenance</h3>
+                    <p>Price: $60</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="img/image1.jpeg" alt="Service Image 4">
+                <div class="service-info">
+                    <h3>Filter Cleaning</h3>
+                    <p>Price: $40</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="img/image2.jpeg" alt="Service Image 5">
+                <div class="service-info">
+                    <h3>Gas Refilling</h3>
+                    <p>Price: $50</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="img/image3.jpeg" alt="Service Image 6">
+                <div class="service-info">
+                    <h3>Remote Repair</h3>
+                    <p>Price: $30</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="img/image1.jpeg" alt="Service Image 7">
+                <div class="service-info">
+                    <h3>Duct Cleaning</h3>
+                    <p>Price: $70</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="img/image2.jpeg" alt="Service Image 8">
+                <div class="service-info">
+                    <h3>AC Inspection</h3>
+                    <p>Price: $20</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <h2>Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="img/image4.jpg" alt="Owner Image">
+                <h3>John Doe</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="img/image5.png" alt="Worker Image 1">
+                <h3>Jane Smith</h3>
+                <p>Senior Technician</p>
+            </div>
+            <div class="team-member">
+                <img src="img/image6.png" alt="Worker Image 2">
+                <h3>Michael Brown</h3>
+                <p>Technician</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+<section class="booking-section" id="booking">
+    <h2>Book Your AC Service</h2>
+    <form class="booking-form" id="bookingForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Mobile Number:</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+
+        <label for="service">Select Service:</label>
+        <select id="service" name="service" required>
+            <option value="AC Installation">AC Installation</option>
+            <option value="AC Repair">AC Repair</option>
+            <option value="AC Maintenance">AC Maintenance</option>
+            <option value="Filter Cleaning">Filter Cleaning</option>
+            <option value="Gas Refilling">Gas Refilling</option>
+            <option value="Remote Repair">Remote Repair</option>
+            <option value="Duct Cleaning">Duct Cleaning</option>
+            <option value="AC Inspection">AC Inspection</option>
+        </select>
+
+        <label for="date">Preferred Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <button type="submit">Book Service</button>
+    </form>
+</section>
+
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-about">
+
+            <h3>About AC Technation</h3>
+            <p>AC Technation provides top-notch AC services, including installation, maintenance, and repair. Quality and customer satisfaction are our priorities.</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer">
+                <a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Email: info@actechnation.com</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 AC Technation. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    
+    function showSlides() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === slideIndex) {
+                slide.classList.add('active');
+            }
+        });
+        slideIndex = (slideIndex + 1) % slides.length;
+        setTimeout(showSlides, 1500); // Change image every 1.5 seconds
+    }
+
+    // Start the slider
+    showSlides();
+
+    // Handle booking form submission
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const service = document.getElementById('service').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+
+        // Construct the WhatsApp message
+        const message = `Booking Request from ${name} (${email}, Phone: ${phone}):\nService: ${service}\nPreferred Date: ${date}\nPreferred Time: ${time}`;
+        const whatsappNumber = '8879479608x';
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        // Redirect to WhatsApp
+        window.open(whatsappURL, '_blank');
+    });
+</script>
+
+</body>
+</html>
