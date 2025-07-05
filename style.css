@@ -9,8 +9,9 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #333;
+    line-height: 1.6;
 }
 
 /* Header Styles */
@@ -18,10 +19,18 @@ header {
     background-color: #333;
     color: #fff;
     padding: 15px 0;
-    position: sticky;
+    position: fixed; /* Change to fixed to keep it at the top */
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
+    transition: transform 0.3s ease; /* Smooth transition for hiding */
 }
+
+header.hidden {
+    transform: translateY(-100%); /* Move header out of view */
+}
+
 
 .header-container {
     display: flex;
@@ -34,7 +43,7 @@ header {
 
 .logo img {
     height: 60px;
-    width: 250px;
+    width: auto;
 }
 
 .navbar ul {
@@ -46,10 +55,9 @@ header {
 .navbar a {
     position: relative;
     padding: 10px 20px;
-    color: rgb(255, 255, 255);
+    color: #fff;
     text-decoration: none;
     font-size: 16px;
-    font-family: Arial, sans-serif;
     border-radius: 12px;
     background: none;
     cursor: pointer;
@@ -57,66 +65,10 @@ header {
     transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
-.navbar a::after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(150, 128, 128, 0.5);
-    top: 0;
-    left: 0;
-    border-radius: 12px;
-}
-
-.navbar a::before {
-    content: "";
-    background: linear-gradient(
-        45deg,
-        #FF0000, #FF7300, #FFFB00, #48FF00,
-        #00FFd5, #002BFF, #FF00CB, #FF0000
-    );
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    filter: blur(8px);
-    background-size: 600%;
-    animation: glowing 20s linear infinite;
-    z-index: -2;
-    border-radius: 12px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Hover effect for glowing links */
-.navbar a:hover::before {
-    opacity: 1;
-}
-
 .navbar a:hover {
     font-weight: bold;
     color: #fff;
 }
-
-/* Active state */
-.navbar a:active::after {
-    background: transparent;
-}
-
-.navbar a:active {
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-}
-
-/* Glowing Animation */
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
-}
-
 
 /* Footer Styles */
 footer {
@@ -127,29 +79,22 @@ footer {
 
 .footer-container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column; /* Stack footer items vertically on mobile */
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .footer-about, .footer-links, .footer-contact {
-    flex: 1;
-    padding: 0 20px;
-}
-
-.footer-links ul {
-    list-style: none;
+    text-align: center;
     padding: 10px 0;
-}
-
-.footer-links li {
-    margin: 5px 0;
 }
 
 .footer-links a {
     color: #ccc;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .footer-links a:hover {
@@ -183,17 +128,40 @@ footer {
     justify-content: center;
 }
 
-.gallery img {
+.service {
+    position: relative;
     width: 100%;
-    max-width: 300px; /* Limit image width to 300px */
-    height: auto;
+    max-width: 300px;
+    overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
-.gallery img:hover {
+.service img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.service-info {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.service:hover {
     transform: scale(1.05);
+}
+
+.service:hover .service-info {
+    transform: translateY(0);
 }
 
 /* About Us Section Styles */
@@ -219,6 +187,11 @@ footer {
 .team-member {
     width: 200px;
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
 }
 
 .team-member img {
@@ -252,7 +225,6 @@ footer {
     color: #fff;                 /* Adjust text color for better readability */
 }
 
-
 .slogan {
     flex: 1;
     padding-right: 20px;
@@ -260,16 +232,17 @@ footer {
 
 .slogan h1 {
     font-size: 2.5em;
-    color: #000000;
+    color: #ffffff;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .slogan p {
     font-size: 1.2em;
-    color: #000000;
+    color: #ffffff;
 }
 
+/* Slider Styles */
 .slider {
     flex: 1;
     position: relative;
@@ -300,136 +273,6 @@ footer {
 .slide.active {
     opacity: 1;
 }
-
-/* Feedback Section Styles */
-.feedback-section {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #f3f3f3;
-}
-
-.feedback-section h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.feedback-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.feedback-form label {
-    display: block;
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 8px;
-    text-align: left;
-}
-
-.feedback-form input[type="email"],
-.feedback-form input[type="tel"],
-.feedback-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-    color: #333;
-}
-
-.feedback-form input[type="email"]:focus,
-.feedback-form input[type="tel"]:focus,
-.feedback-form textarea:focus {
-    border-color: #333;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.feedback-form textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.feedback-form button[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.feedback-form button[type="submit"]:hover {
-    background-color: #555;
-}
-
-/* Footer Custom Styles */
-.footer{
-    margin: 80px 0 10px;
-    text-align: center;
-}
-.footer a{
-    text-decoration: none;
-    color: #000000;
-    font-size: 30px;
-    margin: 0 10px;
-}
-
-.service {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.service img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.service-info {
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-}
-
-.service-info h3 {
-    margin: 0;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.service-info p {
-    margin: 5px 0 0;
-    font-size: 1em;
-}
-
-.service:hover {
-    transform: scale(1.05);
-}
-
-
-
-
-
-
-
 
 /* Booking Section Styles */
 .booking-section {
@@ -484,6 +327,69 @@ footer {
 }
 
 .booking-form button:hover {
-    background-color: #000000; /* Darker shade on hover */
+    background-color: #444; /* Darker shade on hover */
 }
- 
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .homepage {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider {
+        margin-top: 20px;
+    }
+
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member {
+        margin-bottom: 20px;
+    }
+
+    .slogan h1 {
+        font-size: 2em; /* Adjust heading size for mobile */
+    }
+
+    .slogan p {
+        font-size: 1em; /* Adjust paragraph size for mobile */
+    }
+
+    .image-gallery h2 {
+        font-size: 1.5em; /* Adjust heading size for mobile */
+    }
+
+    .service {
+        max-width: 90%; /* Allow services to take more width on mobile */
+    }
+
+    .booking-section {
+        padding: 20px; /* Reduce padding for mobile */
+    }
+
+    .booking-section h2 {
+        font-size: 1.5em; /* Adjust heading size for mobile */
+    }
+
+    .booking-form input,
+    .booking-form select {
+        font-size: 14px; /* Adjust font size for inputs */
+    }
+
+    .booking-form button {
+        font-size: 14px; /* Adjust button font size */
+    }
+}
