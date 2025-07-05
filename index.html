@@ -209,6 +209,23 @@
 
 
 <script>
+    let lastScrollTop = 0; // Keep track of the last scroll position
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // Scrolling down
+            header.classList.add('hidden');
+        } else {
+            // Scrolling up
+            header.classList.remove('hidden');
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    });
+
+    // Existing slider and booking form code...
     let slideIndex = 0;
     const slides = document.querySelectorAll('.slide');
     
